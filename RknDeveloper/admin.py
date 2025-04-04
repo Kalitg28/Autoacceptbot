@@ -18,7 +18,7 @@ async def get_stats(bot, message):
     rkn = await message.reply('**ᴘʀᴏᴄᴇssɪɴɢ.....**')    
     end_t = time.time()
     time_taken_s = (end_t - start_t) * 1000
-    await rkn.edit(text=f"**--ʙᴏᴛ ꜱᴛᴀᴛᴜꜱ--** \n\n**Bʀ ʙᴏᴛ ᴜᴩᴛɪᴍᴇ:** {uptime} \n**🏓 ᴄᴜʀʀᴇɴᴛ ᴩɪɴɢ:** `{time_taken_s:.3f} ᴍꜱ` \n**👤 ᴛᴏᴛᴀʟ ᴜꜱᴇʀꜱ:** `{total_users}`\n**♻️ ᴛᴏᴛᴀʟ ᴄʜᴀᴛꜱ:** `{total_chats}`")
+    await rkn.edit(text=f"**--ʙᴏᴛ ꜱᴛᴀᴛᴜꜱ--** \n\n**ʙᴏᴛ ᴜᴩᴛɪᴍᴇ:** {uptime} \n**🏓 ᴄᴜʀʀᴇɴᴛ ᴩɪɴɢ:** `{time_taken_s:.3f} ᴍꜱ` \n**👤 ᴛᴏᴛᴀʟ ᴜꜱᴇʀꜱ:** `{total_users}`\n**♻️ ᴛᴏᴛᴀʟ ᴄʜᴀᴛꜱ:** `{total_chats}`")
 
 # Restart to cancell all process 
 @Client.on_message(filters.private & filters.command("restart") & filters.user(rkn1.ADMIN))
