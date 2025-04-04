@@ -35,6 +35,7 @@ import time, os, logging, logging.config
 from aiohttp import web
 from datetime import datetime
 from pytz import timezone
+import asyncio
 
 # pyrogram imports
 from pyrogram import Client, __version__
@@ -59,6 +60,23 @@ class Bot(Client):
             bot_token=rkn1.BOT_TOKEN,
             plugins=dict(root='RknDeveloper')
              )
+             
+        # Keep-alive task
+        self.keep_alive_task = None
+        
+    async def keep_alive(self):
+        """Background task to keep the server alive by periodically accessing it"""
+        while True:
+            try:
+                async with self.session.get(f'http://0.0.0.0:{rkn1.PORT}/ping') as resp:
+                    if resp.status == 200:
+                        logging.info("Keep-alive ping successful")
+                    else:
+                        logging.warning(f"Keep-alive ping failed with status {resp.status}")
+            except Exception as e:
+                logging.error(f"Keep-alive error: {e}")
+            await asyncio.sleep(120)  # Ping every 5 minutes (300 seconds)
+            
     async def start(self):
         await super().start()
         me = await self.get_me()
@@ -70,7 +88,11 @@ class Bot(Client):
             app = web.AppRunner(await web_server())
             await app.setup()
             bind_address = "0.0.0.0"
-            await web.TCPSite(app, bind_address, rkn1.PORT).start()
+            site = web.TCPSite(app, bind_address, rkn1.PORT)
+            await site.start()
+            
+            # Start keep-alive task
+            self.keep_alive_task = asyncio.create_task(self.keep_alive())
             
         logging.info(f"{me.first_name} Restarted.....")
         logging.info(rkn1.LOGO)
@@ -90,15 +112,14 @@ class Bot(Client):
                 print("Pʟᴇᴀꜱᴇ Mᴀᴋᴇ Tʜɪꜱ Iꜱ Aᴅᴍɪɴ Iɴ Yᴏᴜʀ Lᴏɢ Cʜᴀɴɴᴇʟ")
                 
     async def stop(self, *args):
-      await super().stop()      
-      logging.info("Bot Stopped 🙄")
+        if self.keep_alive_task:
+            self.keep_alive_task.cancel()
+            try:
+                await self.keep_alive_task
+            except asyncio.CancelledError:
+                pass
+        await super().stop()      
+        logging.info("Bot Stopped 🙄")
         
 bot = Bot()
 bot.run()
-
-
-# Rkn Developer 
-# Don't Remove Credit 😔
-# Telegram Channel @RknDeveloper & @Rkn_Botz
-# Developer @RknDeveloperr
-# Update Channel @Digital_Botz & @DigitalBotz_Support
