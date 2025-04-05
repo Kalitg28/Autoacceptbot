@@ -12,14 +12,19 @@ import random, asyncio, os
 
 # Main Process _ _ _ _ _ Users Send Massage 🥀__🥀 Please 😢 Give Credit
 
-@Client.on_chat_join_request()#filters.group | filters.channel & filters.private)
+@Client.on_chat_join_request()
 async def approve_request(bot, m):
     try:
         await rkn_botz.add_chat(bot, m)
         await bot.approve_chat_join_request(m.chat.id, m.from_user.id)
-        img = random.choice(rkn1.SURPRICE)
-        await bot.send_video(m.from_user.id, img, "**𝖧𝖾𝗅𝗅𝗈 {}, 𝖶𝖾𝗅𝖼𝗈𝗆𝖾 𝖳𝗈 {}\n𝖸𝗈𝗎𝗋 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖧𝖺𝗌 𝖡𝖾𝖾𝗇 𝖠𝗉𝗉𝗋𝗈𝗏𝖾𝖽...!!!\n\n𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖡𝗒 : @ck_linkz\n\n𝖢𝗅𝗂𝖼𝗄 𝖲𝗍𝖺𝗋𝗍 𝖳𝗈 𝖪𝗇𝗈𝗐 𝖬𝗈𝗋𝖾**".format(m.from_user.mention, m.chat.title), reply_markup=InlineKeyboardMarkup([[
-        InlineKeyboardButton("🎥 UPDATES CHANNEL 🔗", url=f"https://t.me/ck_linkz")]]))
+        text = "**𝖧𝖾𝗅𝗅𝗈 {}, 𝖶𝖾𝗅𝖼𝗈𝗆𝖾 𝖳𝗈 {}\n𝖸𝗈𝗎𝗋 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖧𝖺𝗌 𝖡𝖾𝖾𝗇 𝖠𝗉𝗉𝗋𝗈𝗏𝖾𝖽...!!!\n\n𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖡𝗒 : @ck_linkz\n\n𝖢𝗅𝗂𝖼𝗄 𝖲𝗍𝖺𝗋𝗍 𝖳𝗈 𝖪𝗇𝗈𝗐 𝖬𝗈𝗋𝖾**".format(m.from_user.mention, m.chat.title)
+        await bot.send_message(
+            m.from_user.id,
+            text,
+            reply_markup=InlineKeyboardMarkup([[
+                InlineKeyboardButton("🎥 UPDATES CHANNEL 🔗", url="https://t.me/ck_linkz")
+            ]])
+        )
         await rkn_botz.add_user(bot, m)
     except UserIsBlocked:
         print("User blocked the bot")
