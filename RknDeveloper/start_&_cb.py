@@ -17,7 +17,7 @@ async def approve_request(bot, m):
     try:
         await rkn_botz.add_chat(bot, m)
         await bot.approve_chat_join_request(m.chat.id, m.from_user.id)
-        text = "**<blockquote>𝖧𝖾𝗅𝗅𝗈 {}, 𝖶𝖾𝗅𝖼𝗈𝗆𝖾 𝖳𝗈 {}\n𝖸𝗈𝗎𝗋 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖧𝖺𝗌 𝖡𝖾𝖾𝗇 𝖠𝗉𝗉𝗋𝗈𝗏𝖾𝖽...!!!</blockquote>\n\n<blockquote>🌹 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 ›› <a href="https://t.me/Indian_MV">🇮🇳 𝐈𝐧𝐝𝐢𝐚𝐧 𝐌𝐕 🇮🇳</a></blockquote>\n\n𝖢𝗅𝗂𝖼𝗄 𝖲𝗍𝖺𝗋𝗍 𝖳𝗈 𝖪𝗇𝗈𝗐 𝖬𝗈𝗋𝖾**".format(m.from_user.mention, m.chat.title)
+        text = "**<blockquote>𝖧𝖾𝗅𝗅𝗈 {}, 𝖶𝖾𝗅𝖼𝗈𝗆𝖾 𝖳𝗈 {}\n𝖸𝗈𝗎𝗋 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖧𝖺𝗌 𝖡𝖾𝖾𝗇 𝖠𝗉𝗉𝗋𝗈𝗏𝖾𝖽...!!!</blockquote>\n\n<blockquote>🌹 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 ›› @Indian_MV</blockquote>\n\n𝖢𝗅𝗂𝖼𝗄 𝖲𝗍𝖺𝗋𝗍 𝖳𝗈 𝖪𝗇𝗈𝗐 𝖬𝗈𝗋𝖾**".format(m.from_user.mention, m.chat.title)
         await bot.send_message(
             m.from_user.id,
             text,
@@ -50,7 +50,7 @@ async def start_commond(bot, m :Message):
             
     await rkn_botz.add_user(bot, m)
     await force_sub(bot, m, rkn1.FORCE_SUB)
-    await m.reply_photo(photo=rkn1.RKN_PIC, caption="**<blockquote>🦊 Hello {}!\nI'm an auto approve Bot.\n\nI can approve users in Groups/Channels.</blockquote>\n\n<blockquote>Add me to your chat and promote me to admin with add members permission.</blockquote>\n\n<blockquote>🌹 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 ›› <a href="https://t.me/Indian_MV">🇮🇳 𝐈𝐧𝐝𝐢𝐚𝐧 𝐌𝐕 🇮🇳</a></blockquote>\n\n[How To Create Request Channel Link]({})**".format(m.from_user.mention, "https://t.me/telegram/153"), reply_markup=InlineKeyboardMarkup([[
+    await m.reply_photo(photo=rkn1.RKN_PIC, caption="**<blockquote>🦊 Hello {}!\nI'm an auto approve Bot.\n\nI can approve users in Groups/Channels.</blockquote>\n\n<blockquote>Add me to your chat and promote me to admin with add members permission.</blockquote>\n\n<blockquote>🌹 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 ›› @Indian_MV</blockquote>\n\n[How To Create Request Channel Link]({})**".format(m.from_user.mention, "https://t.me/telegram/153"), reply_markup=InlineKeyboardMarkup([[
                 #⚠️ don't change source code & source link ⚠️ #
                 InlineKeyboardButton("⇋ ᴀᴅᴅ ᴍᴇ ᴛᴏ yᴏᴜʀ ᴄʜᴀɴɴᴇʟ ⇌", url=f"https://t.me/{bot.username}?startchannel=Bots4Sale&admin=invite_users+manage_chat")
                 ],[
@@ -63,7 +63,7 @@ async def start_commond(bot, m :Message):
  
 @Client.on_callback_query(filters.regex("start"))
 async def start_query(bot, cb : CallbackQuery):
-    await cb.message.edit("**<blockquote>🦊 Hello {}!\nI'm an auto approve Bot.\n\nI can approve users in Groups/Channels.</blockquote>\n\n<blockquote>Add me to your chat and promote me to admin with add members permission.</blockquote>\n\n<blockquote>🌹 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 ›› <a href="https://t.me/Indian_MV">🇮🇳 𝐈𝐧𝐝𝐢𝐚𝐧 𝐌𝐕 🇮🇳</a></blockquote>\n\n[How To Create Request Channel Link]({})**".format(cb.from_user.mention, "https://t.me/telegram/153"), reply_markup=InlineKeyboardMarkup([[
+    await cb.message.edit("**<blockquote>🦊 Hello {}!\nI'm an auto approve Bot.\n\nI can approve users in Groups/Channels.</blockquote>\n\n<blockquote>Add me to your chat and promote me to admin with add members permission.</blockquote>\n\n<blockquote>🌹 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 ›› @Indian_MV</blockquote>\n\n[How To Create Request Channel Link]({})**".format(cb.from_user.mention, "https://t.me/telegram/153"), reply_markup=InlineKeyboardMarkup([[
                 #⚠️ don't change source code & source link ⚠️ #
                 InlineKeyboardButton("⇋ ᴀᴅᴅ ᴍᴇ ᴛᴏ yᴏᴜʀ ᴄʜᴀɴɴᴇʟ ⇌", url=f"https://t.me/{bot.username}?startchannel=Bots4Sale&admin=invite_users+manage_chat")
                 ],[
