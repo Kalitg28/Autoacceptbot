@@ -6,13 +6,13 @@ class Config:
     API_HASH = getenv("API_HASH", "")
     BOT_TOKEN = getenv("BOT_TOKEN", "")
  
-    FORCE_SUB = int(getenv("FORCE_SUB", ""))
+    FORCE_SUB = int(getenv("FORCE_SUB", "-1002327045567"))
     ADMIN = list(map(int, getenv("ADMIN", "").split()))
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", ""))
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002364462279"))
     
     # database configs
-    DB_URL = os.environ.get("DB_URL", "")
-    DB_NAME = os.environ.get("DB_NAME", "Cluster1")
+    DB_URL = os.environ.get("DB_URL", "mongodb+srv://autoacceptbot:autoacceptbot@cluster0.a64dz8p.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+    DB_NAME = os.environ.get("DB_NAME", "Cluster0")
     
     #web response 
     WEBHOOK = bool(os.environ.get("WEBHOOK", True))
