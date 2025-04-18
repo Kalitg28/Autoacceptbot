@@ -17,12 +17,12 @@ async def approve_request(bot, m):
     try:
         await rkn_botz.add_chat(bot, m)
         await bot.approve_chat_join_request(m.chat.id, m.from_user.id)
-        text = "**𝖧𝖾𝗅𝗅𝗈 {}, 𝖶𝖾𝗅𝖼𝗈𝗆𝖾 𝖳𝗈 {}\n𝖸𝗈𝗎𝗋 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖧𝖺𝗌 𝖡𝖾𝖾𝗇 𝖠𝗉𝗉𝗋𝗈𝗏𝖾𝖽...!!!\n\n<blockquote>🌹 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 ›› <a href="https://t.me/Indian_MV">🇮🇳 𝐈𝐧𝐝𝐢𝐚𝐧 𝐌𝐕 🇮🇳</a></blockquote>\n\n𝖢𝗅𝗂𝖼𝗄 𝖲𝗍𝖺𝗋𝗍 𝖳𝗈 𝖪𝗇𝗈𝗐 𝖬𝗈𝗋𝖾**".format(m.from_user.mention, m.chat.title)
+        text = "**<blockquote>𝖧𝖾𝗅𝗅𝗈 {}, 𝖶𝖾𝗅𝖼𝗈𝗆𝖾 𝖳𝗈 {}\n𝖸𝗈𝗎𝗋 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖧𝖺𝗌 𝖡𝖾𝖾𝗇 𝖠𝗉𝗉𝗋𝗈𝗏𝖾𝖽...!!!</blockquote>\n\n<blockquote>🌹 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 ›› <a href="https://t.me/Indian_MV">🇮🇳 𝐈𝐧𝐝𝐢𝐚𝐧 𝐌𝐕 🇮🇳</a></blockquote>\n\n𝖢𝗅𝗂𝖼𝗄 𝖲𝗍𝖺𝗋𝗍 𝖳𝗈 𝖪𝗇𝗈𝗐 𝖬𝗈𝗋𝖾**".format(m.from_user.mention, m.chat.title)
         await bot.send_message(
             m.from_user.id,
             text,
             reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton("🎥 UPDATES CHANNEL 🔗", url="https://t.me/Indian_MV")
+                InlineKeyboardButton("🍃 ᴊᴏɪɴ ᴜᴩᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ 🍃", url="https://t.me/Indian_MV")
             ]])
         )
         await rkn_botz.add_user(bot, m)
