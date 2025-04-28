@@ -19,10 +19,10 @@ class Config:
     BOT_UPTIME  = time.time()
     PORT = os.environ.get("PORT", "8080")
     
-    RKN_PIC = os.environ.get("RKN_PIC", "https://envs.sh/cRu.jpg")
+    RKN_PIC = os.environ.get("RKN_PIC", "https://envs.sh/4Jy.jpg")
     
  # Subsprice Gif & Auto Request Accept
-    SURPRICE = os.environ.get("SURPRICE", "https://graph.org/file/28c188cb93dc4c08132f9.mp4").split()
+    SURPRICE = os.environ.get("SURPRICE", "https://envs.sh/4J6.jpg").split()
 
     LOGO = """
 RZXBOTS"""
